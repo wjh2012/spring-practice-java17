@@ -104,15 +104,15 @@
             },
             body: JSON.stringify({ senderId, receiverId })
         })
-            .then(response => {
-                if (!response.ok) throw new Error('채팅방 생성 중 오류가 발생했습니다.');
-                return response.json();
-            })
-            .then(data => {
-                document.getElementById('chatRoomId').value = data.id;
-                connect();  // 채팅방 연결
-            })
-            .catch(error => alert(error.message));
+        .then(response => {
+            if (!response.ok) throw new Error('채팅방 생성 중 오류가 발생했습니다.');
+            return response.json();
+        })
+        .then(data => {
+            document.getElementById('chatRoomId').value = data.id;
+            connect();  // 채팅방 연결
+        })
+        .catch(error => alert(error.message));
     }
 
     function getMessages(chatRoomId, partnerId) {
